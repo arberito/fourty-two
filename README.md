@@ -1,11 +1,8 @@
-# 42 Quebec
+## Piscine Overview
 
-This repository contains my solutions and projects completed during the Piscine and Tronc Commun.
+The 42 Piscine is an intensive programming bootcamp designed to teach fundamental coding skills and assess the abilities of participants. During the Piscine, students engage in hands-on coding projects and challenges.
 
-## Branches
+## Projects
 
-- `main` or `master`: This branch intentionally contains minimal information and serves as a placeholder.
-  
-- `piscine`: This branch is dedicated to Piscine-related modules. Changes and updates specific to the Piscine section are made here.
+List the projects you completed during the Piscine. Include brief descriptions and links to the respective project folders or files.
 
-- `tronc-commun`: This branch is dedicated to Tronc Commun projects. Changes and updates specific to the Tronc Commun section are made here.
