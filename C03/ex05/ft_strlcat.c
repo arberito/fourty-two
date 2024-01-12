@@ -1,48 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    :::::::   :::::::       */
-/*   ft_putstr_non_printable.c                       :+:   :+: :+:   :+:      */
+/*   ft_strlcat.c                                    :+:   :+: :+:   :+:      */
 /*                                                   +:+   +:+ +:+   +:+      */
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/11 00:26:20 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/12 08:24:48 by artopall         #######   #######.qc    */
+/*   Created: 2024/01/12 06:59:12 by artopall        #+#   #+# #+#   #+#      */
+/*   Updated: 2024/01/12 07:27:10 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+unsigned int	ft_strlen(char *str)
 {
-	write(1, &c, 1);
-}
+	unsigned int	i;
 
-void	ft_putnbr(int nb)
-{
-	ft_putchar('\\');
-	ft_putchar("0123456789abcdef"[(nb / 16) % 16]);
-	ft_putchar("0123456789abcdef"[nb % 16]);
-}
-
-int	ft_isprint(int c)
-{
-	if (c >= ' ' && c <= '~')
+	i = 0;
+	while (str[i])
 	{
-		ft_putchar(c);
-		return (1);
+		i += 1;
 	}
-	return (0);
+	return (i);
 }
 
-
-void	ft_putstr_non_printable(char *str)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	while (*str)
+	unsigned int	i;
+	char			*temp;
+
+	i = 0;
+	temp = dest;
+	while (*dest)
 	{
-		if (!ft_isprint(*str))
-		{
-			ft_putnbr(*str);
-		}
-		str += 1;
+		dest += 1;
 	}
+	while (src[i] && i < size)
+	{
+		*dest = src[i];
+		dest += 1;
+		i += 1;
+	}
+	*dest = 0;
+	return (ft_strlen(temp));
 }

@@ -1,48 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    :::::::   :::::::       */
-/*   ft_putstr_non_printable.c                       :+:   :+: :+:   :+:      */
+/*   ft_strstr.c                                     :+:   :+: :+:   :+:      */
 /*                                                   +:+   +:+ +:+   +:+      */
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/11 00:26:20 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/12 08:24:48 by artopall         #######   #######.qc    */
+/*   Created: 2024/01/12 06:49:31 by artopall        #+#   #+# #+#   #+#      */
+/*   Updated: 2024/01/12 07:28:49 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+char	*ft_strstr(char *str, char *to_find)
 {
-	write(1, &c, 1);
-}
+	int	i;
 
-void	ft_putnbr(int nb)
-{
-	ft_putchar('\\');
-	ft_putchar("0123456789abcdef"[(nb / 16) % 16]);
-	ft_putchar("0123456789abcdef"[nb % 16]);
-}
-
-int	ft_isprint(int c)
-{
-	if (c >= ' ' && c <= '~')
-	{
-		ft_putchar(c);
-		return (1);
-	}
-	return (0);
-}
-
-
-void	ft_putstr_non_printable(char *str)
-{
 	while (*str)
 	{
-		if (!ft_isprint(*str))
+		i = 0;
+		while (to_find[i] && *str + i == to_find[i])
 		{
-			ft_putnbr(*str);
+			i += 1;
+		}
+		if (!to_find[i])
+		{
+			break ;
 		}
 		str += 1;
 	}
+	return (str);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    :::::::   :::::::       */
-/*   ft_putstr_non_printable.c                       :+:   :+: :+:   :+:      */
+/*   ft_print_memory.c                               :+:   :+: :+:   :+:      */
 /*                                                   +:+   +:+ +:+   +:+      */
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/11 00:26:20 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/12 08:24:48 by artopall         #######   #######.qc    */
+/*   Created: 2024/01/12 09:17:59 by artopall        #+#   #+# #+#   #+#      */
+/*   Updated: 2024/01/12 10:52:28 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,31 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb)
+void	ft_putnbr(unsigned long long n)
 {
-	ft_putchar('\\');
-	ft_putchar("0123456789abcdef"[(nb / 16) % 16]);
-	ft_putchar("0123456789abcdef"[nb % 16]);
+	if (n > 15)
+	{
+		ft_putnbr(n / 16);
+	}
+	ft_putchar("0123456789abcdef"[n % 16]);
 }
 
-int	ft_isprint(int c)
+void	*ft_print_memory(void *addr, unsigned int size)
 {
-	if (c >= ' ' && c <= '~')
+	char			*str;
+	unsigned int	i;
+
+	i = 0;
+	str = (char *)addr;
+	while (i < size)
 	{
-		ft_putchar(c);
-		return (1);
+		ft_putnbr((unsigned long long)&str[i]);
+		i += 15;
 	}
-	return (0);
+	return (addr);
 }
 
-
-void	ft_putstr_non_printable(char *str)
+int	main()
 {
-	while (*str)
-	{
-		if (!ft_isprint(*str))
-		{
-			ft_putnbr(*str);
-		}
-		str += 1;
-	}
+	ft_print_memory((void *)"Hello world", 11);
 }
