@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    :::::::   :::::::       */
-/*   ft_putstr.c                                     :+:   :+: :+:   :+:      */
+/*   ft_iterative_factorial.c                        :+:   :+: :+:   :+:      */
 /*                                                   +:+   +:+ +:+   +:+      */
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/09 13:41:02 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/15 13:04:49 by artopall         #######   #######.qc    */
+/*   Created: 2024/01/14 20:53:03 by artopall        #+#   #+# #+#   #+#      */
+/*   Updated: 2024/01/14 21:06:06 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_islow(int nb)
 {
-	write(1, &c, 1);
+	if (nb == 1)
+	{
+		return (1);
+	}
+	if (nb <= 0)
+	{
+		return (0);
+	}
+	return (nb);
 }
 
-void	ft_putstr(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	while (*str)
+	int	result;
+
+	result = 1;
+	if (ft_islow(nb) <= 1)
 	{
-		ft_putchar(*str);
-		str += 1;
+		return (ft_islow(nb));
 	}
+	while (nb > 0)
+	{
+		result *= nb;
+		nb -= 1;
+	}
+	return (result);
 }

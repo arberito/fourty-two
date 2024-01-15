@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    :::::::   :::::::       */
-/*   ft_putstr.c                                     :+:   :+: :+:   :+:      */
+/*   ft_strcmp.c                                     :+:   :+: :+:   :+:      */
 /*                                                   +:+   +:+ +:+   +:+      */
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/09 13:41:02 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/15 13:04:49 by artopall         #######   #######.qc    */
+/*   Created: 2024/01/12 06:01:28 by artopall        #+#   #+# #+#   #+#      */
+/*   Updated: 2024/01/12 06:02:55 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_strcmp(char *s1, char *s2)
 {
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
-	while (*str)
+	while (*s1 && *s2 && *s1 == *s2)
 	{
-		ft_putchar(*str);
-		str += 1;
+		s1 += 1;
+		s2 += 1;
 	}
+	return (*s1 - *s2);
 }

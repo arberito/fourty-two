@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    :::::::   :::::::       */
-/*   ft_putstr.c                                     :+:   :+: :+:   :+:      */
+/*   ft_print_params.c                               :+:   :+: :+:   :+:      */
 /*                                                   +:+   +:+ +:+   +:+      */
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/09 13:41:02 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/15 13:04:49 by artopall         #######   #######.qc    */
+/*   Created: 2024/01/14 21:43:58 by artopall        #+#   #+# #+#   #+#      */
+/*   Updated: 2024/01/14 21:47:33 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,27 @@ void	ft_putstr(char *str)
 		ft_putchar(*str);
 		str += 1;
 	}
+}
+
+void	ft_getstr(char **tab, int size)
+{
+	int	i;
+
+	i = 1;
+	if (size < 2)
+	{
+		return ;
+	}
+	while (i < size)
+	{
+		ft_putstr(tab[i]);
+		ft_putchar('\n');
+		i += 1;
+	}
+}
+
+int	main(int ac, char **av)
+{
+	ft_getstr(av, ac);
+	return (0);
 }

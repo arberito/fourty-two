@@ -1,27 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    :::::::   :::::::       */
-/*   ft_putstr.c                                     :+:   :+: :+:   :+:      */
+/*   ft_strdup.c                                     :+:   :+: :+:   :+:      */
 /*                                                   +:+   +:+ +:+   +:+      */
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/09 13:41:02 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/15 13:04:49 by artopall         #######   #######.qc    */
+/*   Created: 2024/01/14 22:08:27 by artopall        #+#   #+# #+#   #+#      */
+/*   Updated: 2024/01/14 22:11:26 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+int	ft_strlen(char *str)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		i += 1;
+	}
+	return (i);
 }
 
-void	ft_putstr(char *str)
+char	*ft_strcpy(char *dest, char *src)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (src[i])
 	{
-		ft_putchar(*str);
-		str += 1;
+		dest[i] = src[i];
+		i += 1;
 	}
+	dest[i] = 0;
+	return (dest);
+}
+
+char	*ft_strdup(char *src)
+{
+	char	*dup;
+	
+	dup = malloc(sizeof(char) * ft_strlen(src) + 1);
+	if (dup == NULL)
+	{
+		return (NULL);
+	}
+	dup = ft_strcpy(dup, src);
+	return (dup);
 }

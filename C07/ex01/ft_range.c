@@ -1,27 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    :::::::   :::::::       */
-/*   ft_putstr.c                                     :+:   :+: :+:   :+:      */
+/*   ft_range.c                                      :+:   :+: :+:   :+:      */
 /*                                                   +:+   +:+ +:+   +:+      */
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/09 13:41:02 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/15 13:04:49 by artopall         #######   #######.qc    */
+/*   Created: 2024/01/14 22:12:45 by artopall        #+#   #+# #+#   #+#      */
+/*   Updated: 2024/01/14 22:17:06 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+int	ft_rangelen(int min, int max)
 {
-	write(1, &c, 1);
+	if (min >= max)
+	{
+		return (0);
+	}
+	return (max - min);
 }
 
-void	ft_putstr(char *str)
+int	*ft_range(int min, int max)
 {
-	while (*str)
+	int	*range;
+	int	i;
+
+	i = 0;
+	if (ft_rangelen(min, max) == 0)
 	{
-		ft_putchar(*str);
-		str += 1;
+		return (NULL);
+	}
+	range = malloc(sizeof(int) * (max - min) + 1);
+	if (range == NULL)
+	{
+		return (NULL);
+	}
+	while (min < max)
+	{
+		range[i] = min;
+		i += 1;
+		min += 1;
 	}
 }

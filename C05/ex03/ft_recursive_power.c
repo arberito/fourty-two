@@ -1,27 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    :::::::   :::::::       */
-/*   ft_putstr.c                                     :+:   :+: :+:   :+:      */
+/*   ft_recursive_power.c                            :+:   :+: :+:   :+:      */
 /*                                                   +:+   +:+ +:+   +:+      */
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/09 13:41:02 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/15 13:04:49 by artopall         #######   #######.qc    */
+/*   Created: 2024/01/14 21:12:48 by artopall        #+#   #+# #+#   #+#      */
+/*   Updated: 2024/01/14 21:15:27 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_islow(int nb)
 {
-	write(1, &c, 1);
+	if (nb == 0)
+	{
+		return (1);
+	}
+	if (nb < 0)
+	{
+		return (0);
+	}
+	return (nb);
 }
 
-void	ft_putstr(char *str)
+int	ft_recursive_power(int nb, int power)
 {
-	while (*str)
+	int	result;
+
+	result = nb;
+	if (result > result * nb)
 	{
-		ft_putchar(*str);
-		str += 1;
+		return (0);
 	}
+	else if (power > 1)
+	{
+		return (result * ft_recursive_power(result, power - 1));
+	}
+	else if (ft_islow(power) <= 1)
+	{
+		return (ft_islow(power));
+	}
+	return (result);
 }

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    :::::::   :::::::       */
-/*   ft_putstr.c                                     :+:   :+: :+:   :+:      */
+/*   ft_strlen.c                                     :+:   :+: :+:   :+:      */
 /*                                                   +:+   +:+ +:+   +:+      */
-/*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
+/*   By: artopall <artopall@student.42quebec.com     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/09 13:41:02 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/15 13:04:49 by artopall         #######   #######.qc    */
+/*   Created: 2024/01/09 13:42:01 by artopall        #+#   #+# #+#   #+#      */
+/*   Updated: 2024/01/09 13:42:22 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_strlen(char *str)
 {
-	write(1, &c, 1);
-}
+	int	i;
 
-void	ft_putstr(char *str)
-{
-	while (*str)
+	i = 0;
+	while (str[i])
 	{
-		ft_putchar(*str);
-		str += 1;
+		i += 1;
 	}
+	return (i);
 }

@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                    :::::::   :::::::       */
-/*   ft_putstr.c                                     :+:   :+: :+:   :+:      */
+/*   ft_sqrt.c                                       :+:   :+: :+:   :+:      */
 /*                                                   +:+   +:+ +:+   +:+      */
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/09 13:41:02 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/15 13:04:49 by artopall         #######   #######.qc    */
+/*   Created: 2024/01/14 21:20:55 by artopall        #+#   #+# #+#   #+#      */
+/*   Updated: 2024/01/14 21:31:32 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_islow(int nb)
 {
-	write(1, &c, 1);
+	return (!(nb <= 0 && nb > 46240));
 }
 
-void	ft_putstr(char *str)
+int	ft_sqrt(int nb)
 {
-	while (*str)
+	int	radicand;
+
+	radicand = 1;
+	if (ft_islow(nb) == 0)
 	{
-		ft_putchar(*str);
-		str += 1;
+		return (0);
 	}
+	while (radicand * radicand <= nb)
+	{
+		if (radicand * radicand == nb)
+		{
+			return (radicand);
+		}
+		radicand += 1;
+	}
+	return (0);
 }
