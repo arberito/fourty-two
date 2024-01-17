@@ -6,13 +6,13 @@
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
 /*   Created: 2024/01/14 21:20:55 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/14 21:31:32 by artopall         #######   #######.qc    */
+/*   Updated: 2024/01/17 07:40:05 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_islow(int nb)
 {
-	return (!(nb <= 0 && nb > 46240));
+	return (!(nb <= 0 || nb > 46240));
 }
 
 int	ft_sqrt(int nb)

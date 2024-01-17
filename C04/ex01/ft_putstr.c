@@ -6,22 +6,25 @@
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
 /*   Created: 2024/01/14 16:31:37 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/14 17:10:13 by artopall         #######   #######.qc    */
+/*   Updated: 2024/01/17 07:39:00 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int	ft_strlen(char *str)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		i += 1;
+	}
+	return (i);
 }
 
 void	ft_putstr(char *str)
 {
-	while (*str)
-	{
-		ft_putchar(*str);
-		str += 1;
-	}
+	write(1, str, ft_strlen(str));
 }

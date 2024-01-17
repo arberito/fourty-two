@@ -6,7 +6,7 @@
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
 /*   Created: 2024/01/12 06:49:31 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/12 07:28:49 by artopall         #######   #######.qc    */
+/*   Updated: 2024/01/17 07:26:12 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strstr(char *str, char *to_find)
 	while (*str)
 	{
 		i = 0;
-		while (to_find[i] && *str + i == to_find[i])
+		while (to_find[i] && *(str + i) == to_find[i])
 		{
 			i += 1;
 		}

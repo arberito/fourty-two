@@ -135,6 +135,6 @@ int	main(int argc, char *argv[])
 	tab[8] = 4533;
 	tab[9] = 35;
 	//ft_print_memory((char*)argv[1], (unsigned int)ft_strlen(argv[1]));
-	ft_print_memory(tab, 10);
+	ft_print_memory(tab, 43);
 	return (0);
 }

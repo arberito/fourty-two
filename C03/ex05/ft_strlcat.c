@@ -6,7 +6,7 @@
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
 /*   Created: 2024/01/12 06:59:12 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/12 07:27:10 by artopall         #######   #######.qc    */
+/*   Updated: 2024/01/17 07:37:02 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,19 @@ unsigned int	ft_strlen(char *str)
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
-	char			*temp;
+	unsigned int	dest_len;
 
 	i = 0;
-	temp = dest;
-	while (*dest)
+	dest_len = ft_strlen(dest);
+	if (size <= dest_len)
 	{
-		dest += 1;
+		return (dest_len + ft_strlen(src));
 	}
-	while (src[i] && i < size)
+	while (src[i] && dest_len + i < (size - 1))
 	{
-		*dest = src[i];
-		dest += 1;
+		dest[dest_len + i] = src[i];
 		i += 1;
 	}
-	*dest = 0;
-	return (ft_strlen(temp));
+	dest[dest_len + i] = 0;
+	return (dest_len + ft_strlen(src));
 }

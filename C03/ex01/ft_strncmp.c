@@ -6,7 +6,7 @@
 /*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
 /*                                                   +#+   +#+ +#+   +#+      */
 /*   Created: 2024/01/12 06:03:11 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/12 06:04:56 by artopall         #######   #######.qc    */
+/*   Updated: 2024/01/17 07:23:51 by artopall         #######   #######.qc    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	unsigned int	i;
 
 	i = 0;
-	while (*s1 && *s2 && *s1 == *s2 && i < n)
+	if (n == 0)
+	{
+		return (0);
+	}
+	while (*s1 && *s2 && *s1 == *s2 && i < (n - 1))
 	{
 		s1 += 1;
 		s2 += 1;
