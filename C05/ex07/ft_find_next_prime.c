@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 20:53:03 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/19 07:20:05 by artopall         ###   ########.fr       */
+/*   Created: 2024/01/19 09:01:44 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/19 11:48:59 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_islow(int nb)
 {
-	if (nb < 0)
+	return (nb <= 1);
+}
+
+int	ft_is_prime(int nb)
+{
+	int	i;
+
+	i = 2;
+	if (ft_islow(nb))
 	{
 		return (0);
 	}
-	if (nb <= 1)
+	while (nb % i != 0)
 	{
-		return (1);
+		i += 1;
 	}
-	return (nb);
+	return (i == nb);
 }
 
-int	ft_iterative_factorial(int nb)
+int	ft_find_next_prime(int nb)
 {
-	int	result;
-
-	result = 1;
-	if (ft_islow(nb) <= 1)
+	if (ft_is_prime(nb) == 0)
 	{
-		return (ft_islow(nb));
+		return (ft_find_next_prime(nb + 1));
 	}
-	while (nb > 0)
-	{
-		result *= nb;
-		nb -= 1;
-	}
-	return (result);
+	return (nb);
 }

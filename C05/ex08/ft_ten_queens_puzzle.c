@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_ten_queens_puzzle.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 21:42:13 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/19 07:12:23 by artopall         ###   ########.fr       */
+/*   Created: 2024/01/19 09:05:30 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/19 11:28:27 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,48 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putstr(char *str)
+void	ft_setboard(int board[10][10])
 {
-	while (*str)
+	int	col;
+	int	row;
+
+	col = 0;
+	while (col < 10)
 	{
-		ft_putchar(*str);
-		str += 1;
+		row = 0;
+		while (row < 10)
+		{
+			board[col][row] = 0;
+			row += 1;
+		}
+		col += 1;
 	}
 }
 
-int	main(int ac, char **av)
+
+int	ft_solved(int tab[10][10], int x, int y)
 {
-	(void)ac;
-	ft_putstr(av[0]);
-	return (0);
+	int	row;
+	int	col;
+
+	while (row < 10)
+	{
+		
+	}
+}
+
+int	ft_ten_queens_puzzle(void)
+{
+	int	board[10][10];
+	int	solutions;
+	int	row;
+
+	row = 0;
+	while (row < 10)
+	{
+		ft_setboard(board);
+		solutions += 
+		row += 1;
+	}
+	return (solutions);
 }

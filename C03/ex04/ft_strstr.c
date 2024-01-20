@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                    :::::::   :::::::       */
-/*   ft_strstr.c                                     :+:   :+: :+:   :+:      */
-/*                                                   +:+   +:+ +:+   +:+      */
-/*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
-/*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/12 06:49:31 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/17 07:26:12 by artopall         #######   #######.qc    */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/12 06:49:31 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/18 22:24:34 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
-
+	
+	if (*to_find == 0)
+	{
+		return (str);
+	}
 	while (*str)
 	{
 		i = 0;
@@ -23,9 +29,9 @@ char	*ft_strstr(char *str, char *to_find)
 		}
 		if (!to_find[i])
 		{
-			break ;
+			return (str);
 		}
 		str += 1;
 	}
-	return (str);
+	return (NULL);
 }

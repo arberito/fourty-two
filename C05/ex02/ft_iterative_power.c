@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                    :::::::   :::::::       */
-/*   ft_iterative_power.c                            :+:   :+: :+:   :+:      */
-/*                                                   +:+   +:+ +:+   +:+      */
-/*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
-/*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/14 21:10:09 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/14 21:11:57 by artopall         #######   #######.qc    */
+/*                                                        :::      ::::::::   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/14 21:10:09 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/19 07:36:58 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_islow(int nb)
 {
-	if (nb == 0)
-	{
-		return (1);
-	}
 	if (nb < 0)
 	{
 		return (0);
 	}
-	return (nb);
+	if (nb == 0)
+	{
+		return (1);
+	}
+	return (nb + 1);
 }
 
 int	ft_iterative_power(int nb, int power)
