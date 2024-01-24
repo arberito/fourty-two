@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:03:11 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/18 22:03:39 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/24 06:56:44 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	{
 		return (0);
 	}
-	while (*s1 && *s2 && *s1 == *s2 && i < (n - 1))
+	while (*s1 && *s1 == *s2 && i < (n - 1))
 	{
 		s1 += 1;
 		s2 += 1;

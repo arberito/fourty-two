@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:49:31 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/18 22:24:34 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/24 06:55:41 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
 	
-	if (*to_find == 0)
+	if (to_find[0] == 0)
 	{
 		return (str);
 	}
