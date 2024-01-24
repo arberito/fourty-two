@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                    :::::::   :::::::       */
-/*   ft_split.c                                      :+:   :+: :+:   :+:      */
-/*                                                   +:+   +:+ +:+   +:+      */
-/*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
-/*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/15 07:33:23 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/15 09:14:38 by artopall         #######   #######.qc    */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 07:09:45 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/22 08:51:58 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,31 +24,9 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_strstr(char *s1, char *needle)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (s1[i])
-	{
-		j = 0;
-		while (needle[j] && s1[i + j] == needle[j])
-		{
-			j += 1;
-		}
-		if (!needle[j])
-		{
-			return (i);
-		}
-		i += 1;
-	}
-	return (i);
-}
-
-char	*ft_strncpy(char *dest, char *src, int n)
-{
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (src[i] && i < n)
@@ -60,7 +38,31 @@ char	*ft_strncpy(char *dest, char *src, int n)
 	return (dest);
 }
 
-int	ft_arraylen(char *str, char *charset)
+int	ft_strstr(char *str, char *charset)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (!charset[0])
+		return (ft_strlen(str));
+	while (str[i])
+	{
+		j = 0;
+		while (charset[j] && str[i + j] == charset[j])
+		{
+			j += 1;
+		}
+		if (!charset[j])
+		{
+			return (i);
+		}
+		i += 1;
+	}
+	return (i);
+}
+
+int	ft_getsize(char *str, char *charset)
 {
 	int	i;
 	int	size;
@@ -69,7 +71,7 @@ int	ft_arraylen(char *str, char *charset)
 	while (*str)
 	{
 		i = 0;
-		while (*str + i && charset[i] && *str + i == charset[i])
+		while (charset[i] && *(str + i) == charset[i])
 		{
 			i += 1;
 		}
@@ -85,22 +87,26 @@ int	ft_arraylen(char *str, char *charset)
 char	**ft_split(char *str, char *charset)
 {
 	char	**array;
-	int		i;
+	int		index;
+	int		pos;
 
-	if (ft_arraylen(str, charset) == 0)
-	{
-		return (NULL);
-	}
-	array = malloc(sizeof(char *) * ft_arraylen(str, charset) + 1);
+	array = (char **)malloc(sizeof(char *) * (ft_getsize(str, charset) + 1));
 	if (array == NULL)
 		return (NULL);
-	i = 0;
-	while (i < ft_arraylen(str, charset))
+	index = 0;
+	pos = 0;
+	while (str[pos])
 	{
-		array[i] = malloc(sizeof(char) * ft_strlen(str) + 1);
-		array[i] = ft_strncpy(array[i], str, ft_strstr(str, charset));
-		i += 1;
+		if (ft_strstr(str + pos, charset) > 0)
+		{
+			array[index] = malloc(sizeof(char) * (ft_strlen(str + pos) + 1));
+			ft_strncpy(array[index], str + pos, ft_strstr(str + pos, charset));
+			pos += ft_strstr(str + pos, charset);
+			index += 1;
+		}
+		else
+			pos += 1;
 	}
-	array[i] = NULL;
+	array[index] = NULL;
 	return (array);
 }

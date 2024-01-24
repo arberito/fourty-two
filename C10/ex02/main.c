@@ -1,51 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 21:48:10 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/21 21:52:21 by artopall         ###   ########.fr       */
+/*   Created: 2024/01/25 21:26:40 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/25 21:52:59 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "ft_tail.h"
 
-int	ft_strlen(char *str)
+int	main(int ac, char **av)
 {
 	int	i;
-
-	i = 0;
-	while (str[i])
+	int	fd;
+	
+	if (ac < 4)
+		return (1);
+	i = 3;
+	while (i < ac)
 	{
+		fd = open(av[i], O_RDONLY);
+		ft_tail(fd, av[i], ft_atoi(av[2]));
 		i += 1;
-	}
-	return (i);
-}
-
-char	*ft_strcpy(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s2[i])
-	{
-		s1[i] = s2[i];
-		i += 1;
-	}
-	s1[i] = 0;
-	return (s1);
-}
-
-char	*ft_strdup(char *src)
-{
-	char	*dup;
-
-	dup = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
-	if (dup == NULL)
-	{
-		return (NULL);
-	}
-	return (ft_strcpy(dup, src));
+	} 
+	return (0);
 }
