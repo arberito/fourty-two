@@ -1,45 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                    :::::::   :::::::       */
-/*   ft_range.c                                      :+:   :+: :+:   :+:      */
-/*                                                   +:+   +:+ +:+   +:+      */
-/*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
-/*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/14 22:12:45 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/14 22:17:06 by artopall         #######   #######.qc    */
+/*                                                        :::      ::::::::   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/21 21:55:04 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/21 22:16:51 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_rangelen(int min, int max)
+int	*ft_tabcopy(int *tab, int min, int max)
 {
-	if (min >= max)
+	int	index;
+
+	index = 0;
+	while (min < max)
 	{
-		return (0);
+		tab[index] = min;
+		index += 1;
+		min += 1;
 	}
-	return (max - min);
+	return (tab);
+}
+
+int	ft_getsize(int min, int max)
+{
+	return ((min < max) * (max - min));
 }
 
 int	*ft_range(int min, int max)
 {
-	int	*range;
-	int	i;
+	int	*tab;
 
-	i = 0;
-	if (ft_rangelen(min, max) == 0)
+	if (!ft_getsize(min, max))
+		return (NULL);
+	tab = (int *)malloc(sizeof(int) * ft_getsize(min, max));
+	if (!tab)
 	{
 		return (NULL);
 	}
-	range = malloc(sizeof(int) * (max - min) + 1);
-	if (range == NULL)
-	{
-		return (NULL);
-	}
-	while (min < max)
-	{
-		range[i] = min;
-		i += 1;
-		min += 1;
-	}
+	return (ft_tabcopy(tab, min, max));
 }

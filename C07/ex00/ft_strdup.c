@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                    :::::::   :::::::       */
-/*   ft_strdup.c                                     :+:   :+: :+:   :+:      */
-/*                                                   +:+   +:+ +:+   +:+      */
-/*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
-/*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/14 22:08:27 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/14 22:11:26 by artopall         #######   #######.qc    */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/21 21:48:10 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/21 21:52:21 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,29 +24,28 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (src[i])
+	while (s2[i])
 	{
-		dest[i] = src[i];
+		s1[i] = s2[i];
 		i += 1;
 	}
-	dest[i] = 0;
-	return (dest);
+	s1[i] = 0;
+	return (s1);
 }
 
 char	*ft_strdup(char *src)
 {
 	char	*dup;
-	
-	dup = malloc(sizeof(char) * ft_strlen(src) + 1);
+
+	dup = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
 	if (dup == NULL)
 	{
 		return (NULL);
 	}
-	dup = ft_strcpy(dup, src);
-	return (dup);
+	return (ft_strcpy(dup, src));
 }
