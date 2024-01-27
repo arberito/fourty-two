@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:08:57 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/24 06:56:11 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/27 15:47:30 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,10 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 
 	i = 0;
 	dest_len = ft_strlen(dest);
-	while (*src && i < nb)
+	while (src[i] && i < nb)
 	{
-		
-		dest[dest_len + i] = *src;
+		dest[dest_len + i] = src[i];
 		i += 1;
-		src += 1;
 	}
 	dest[dest_len + i] = 0;
 	return (dest);
