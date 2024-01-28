@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                    :::::::   :::::::       */
-/*   ft_rev_params.c                                 :+:   :+: :+:   :+:      */
-/*                                                   +:+   +:+ +:+   +:+      */
-/*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
-/*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/14 21:48:18 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/14 21:49:40 by artopall         #######   #######.qc    */
+/*                                                        :::      ::::::::   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/14 21:48:18 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/27 20:02:49 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int	ft_strlen(char *str)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		i += 1;
+	}
+	return (i);
 }
 
 void	ft_putstr(char *str)
 {
-	while (*str)
-	{
-		ft_putchar(*str);
-		str += 1;
-	}
+	write(1, str, ft_strlen(str));
 }
 
 void	ft_getstr(char **tab, int size)
@@ -32,7 +35,7 @@ void	ft_getstr(char **tab, int size)
 	while (size > 0)
 	{
 		ft_putstr(tab[size]);
-		ft_putchar('\n');
+		ft_putstr("\n");
 		size -= 1;
 	}
 }

@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                    :::::::   :::::::       */
-/*   ft_sort_params.c                                :+:   :+: :+:   :+:      */
-/*                                                   +:+   +:+ +:+   +:+      */
-/*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
-/*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/14 21:50:06 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/14 22:07:07 by artopall         #######   #######.qc    */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/14 21:50:06 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/27 20:05:53 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int	ft_strlen(char *str)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		i += 1;
+	}
+	return (i);
+}
+
+void	ft_putstr(char *str)
+{
+	write(1, str, ft_strlen(str));
 }
 
 int	ft_strcmp(char *s1, char *s2)
@@ -47,15 +59,6 @@ char	**ft_sort_str(char **array, int size)
 	return (array);
 }
 
-void	ft_putstr(char *str)
-{
-	while (*str)
-	{
-		ft_putchar(*str);
-		str += 1;
-	}
-}
-
 int	main(int ac, char **av)
 {
 	int	i;
@@ -65,7 +68,7 @@ int	main(int ac, char **av)
 	while (i < ac)
 	{
 		ft_putstr(av[i]);
-		ft_putchar('\n');
+		ft_putstr("\n");
 		i += 1;
 	}
 	return (0);
