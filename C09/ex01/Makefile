@@ -5,28 +5,35 @@
 #                                                     +:+ +:+         +:+      #
 #    By: artopall <artopall@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/22 19:30:55 by artopall          #+#    #+#              #
-#    Updated: 2024/01/28 07:48:19 by artopall         ###   ########.fr        #
+#    Created: 2024/01/17 21:11:46 by artopall          #+#    #+#              #
+#    Updated: 2024/01/28 07:53:35 by artopall         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #	Vars
-NAME	=	ft_tail
-CC		=	cc -Wall -Wextra -Werror -o
-FILES	=	main.c ft_tail.c ft_utils.c
+NAME	=	libft.a
+
+CC		=	cc -Wall -Wextra -Werror -c -Iinclude/
+AR RC	=	ar -rc
+
+SRCS	=	srcs/
+INC		=	includes/ft.h
+
+FILES	=	$(SRCS)ft_putchar.c $(SRCS)ft_putstr.c $(SRCS)ft_strcmp.c $(SRCS)ft_strlen.c $(SRCS)ft_swap.c
+OBJS	=	$(FILES:.c=.o)
 
 #	compilation
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES)
-	$(CC) $(NAME) $(FILES)
+$(NAME)	:	$(OBJS)
+	ar -rc $(NAME) $(OBJS)
 
 clean	:
-	rm -rf *.o
+	rm -rf	$(OBJS)
 
-fclean	:	clean
-	rm -rf $(NAME)
+fclean	:
+	rm -r	$(NAME)
 
-re		:	fclean all
+re		: fclean all
 
-.phony	:	all clean fclean re
+.PHONY: all clean fclean re
