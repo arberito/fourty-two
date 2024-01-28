@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                    :::::::   :::::::       */
-/*   ft_show_tab.c                                   :+:   :+: :+:   :+:      */
-/*                                                   +:+   +:+ +:+   +:+      */
-/*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
-/*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/15 12:26:56 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/15 13:01:50 by artopall         #######   #######.qc    */
+/*                                                        :::      ::::::::   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/15 12:26:56 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/27 22:37:08 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stock_str.h"
 #include <unistd.h>
-
-struct s_stock_str *ft_strs_to_tab(int ac, char **av);
 
 void	ft_putchar(char c)
 {
@@ -25,11 +23,11 @@ void	ft_putstr(char *str)
 	while (*str)
 	{
 		ft_putchar(*str);
-		str +=1 ;
+		str += 1;
 	}
 }
 
-int	ft_strlen1(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -50,7 +48,7 @@ void	ft_putnbr(int nb)
 	ft_putchar("0123456789"[nb % 10]);
 }
 
-void ft_show_tab(struct s_stock_str *par)
+void	ft_show_tab(struct s_stock_str *par)
 {
 	int	i;
 
@@ -59,7 +57,7 @@ void ft_show_tab(struct s_stock_str *par)
 	{
 		ft_putstr(par[i].str);
 		ft_putchar('\n');
-		ft_putnbr(ft_strlen1(par[i].str));
+		ft_putnbr(ft_strlen(par[i].str));
 		ft_putchar('\n');
 		ft_putstr(par[i].copy);
 		ft_putchar('\n');
