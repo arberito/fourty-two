@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_cat.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 20:25:06 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/19 20:39:45 by artopall         ###   ########.fr       */
+/*   Created: 2024/01/23 23:02:10 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/24 11:43:17 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <errno.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+void	ft_putstr(char *str);
+
+void	ft_cat(int fd, char *filename, int nb)
 {
-	write(1, &c, 1);
-}
+	char	buffer[42];
+	int		tty;
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
+	if (fd >= 0)
 	{
-		i += 1;
+		tty = read(fd, buffer, 42);
+		while (tty)
+		{
+			buffer[tty] = 0;
+			ft_putstr(buffer);
+			tty = read(fd, buffer, 42);
+		}
+		close(fd);
 	}
-	return (i);
-}
-
-void	ft_putstr(char *str)
-{
-	write(1, str, ft_strlen(str));
+	else
+	{
+		ft_putstr("cat: ");
+		ft_putstr(filename);
+		ft_putstr(": No such file or directory\n");
+	}
 }
