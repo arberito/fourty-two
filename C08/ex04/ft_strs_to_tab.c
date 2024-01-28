@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                    :::::::   :::::::       */
-/*   ft_strs_to_tab.c                                :+:   :+: :+:   :+:      */
-/*                                                   +:+   +:+ +:+   +:+      */
-/*   By: artopall | artopall@student.42quebec.co     +#+   +:+ +#+   +:+      */
-/*                                                   +#+   +#+ +#+   +#+      */
-/*   Created: 2024/01/15 11:50:23 by artopall        #+#   #+# #+#   #+#      */
-/*   Updated: 2024/01/15 12:22:39 by artopall         #######   #######.qc    */
+/*                                                        :::      ::::::::   */
+/*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/15 11:50:23 by artopall          #+#    #+#             */
+/*   Updated: 2024/01/27 22:30:24 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stock_str.h"
-#include <stdlib.h>
 
 int	ft_strlen(char *str)
 {
@@ -42,7 +41,7 @@ char	*ft_strcpy(char *dest, char *src)
 char	*ft_strdup(char *src)
 {
 	char	*dup;
-	
+
 	dup = malloc(sizeof(char) * ft_strlen(src) + 1);
 	if (dup == NULL)
 	{
@@ -52,8 +51,7 @@ char	*ft_strdup(char *src)
 	return (dup);
 }
 
-
-struct s_stock_str *ft_strs_to_tab(int ac, char **av)
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	int			i;
 	t_stock_str	*s;
@@ -61,9 +59,7 @@ struct s_stock_str *ft_strs_to_tab(int ac, char **av)
 	i = 0;
 	s = malloc(sizeof(t_stock_str) * ac);
 	if (s == NULL)
-	{
 		return (NULL);
-	}
 	while (i < ac)
 	{
 		s[i].copy = ft_strlen(av[i]);
@@ -71,11 +67,8 @@ struct s_stock_str *ft_strs_to_tab(int ac, char **av)
 		s[i].str = av[i];
 		if (s[i].copy == NULL)
 		{
-			while (i >= 0)
-			{
+			while (--i >= 0)
 				free(s[i].copy);
-				i -= 1;
-			}
 			free(s);
 			return (NULL);
 		}

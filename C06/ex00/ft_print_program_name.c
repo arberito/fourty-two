@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:42:13 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/27 19:59:42 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/27 21:46:48 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void	ft_putstr(char *str)
 int	main(int ac, char **av)
 {
 	ft_putstr(av[ac * 0]);
+	ft_putstr("\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:50:06 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/27 20:05:53 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/27 21:57:27 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_putstr(char *str)
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	while (*s1 && *s2 && *s1 == *s2)
+	while (*s1 && *s1 == *s2)
 	{
 		s1 += 1;
 		s2 += 1;
@@ -52,7 +52,7 @@ char	**ft_sort_str(char **array, int size)
 			temp = array[i];
 			array[i] = array[i + 1];
 			array[i + 1] = temp;
-			i = -1;
+			i = 0;
 		}
 		i += 1;
 	}
