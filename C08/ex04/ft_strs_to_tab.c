@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:50:23 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/27 22:30:24 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/28 07:56:01 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ char	*ft_strdup(char *src)
 	{
 		return (NULL);
 	}
-	dup = ft_strcpy(dup, src);
-	return (dup);
+	return (ft_strcpy(dup, src));
 }
 
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)

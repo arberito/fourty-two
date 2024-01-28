@@ -6,10 +6,9 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 22:09:02 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/25 22:09:10 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/28 08:00:42 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef FT_TAIL_H
 # define FT_TAIL_H

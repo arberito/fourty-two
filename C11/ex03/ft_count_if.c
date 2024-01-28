@@ -6,11 +6,11 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:08:05 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/26 21:10:20 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/28 08:02:15 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_count_if(char **tab, int length, int(*f)(char*))
+int	ft_count_if(char **tab, int length, int (*f)(char*))
 {
 	int	count;
 	int	i;

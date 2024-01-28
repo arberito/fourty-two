@@ -6,12 +6,12 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:27:17 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/27 22:01:55 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/28 07:57:24 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#ifndef FT_H_H
+# define FT_H_H
 
 void	ft_swap(int *a, int *b);
 void	ft_putstr(char *str);

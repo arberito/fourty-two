@@ -6,11 +6,11 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 20:50:27 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/26 20:53:38 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/28 08:01:50 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_foreach(int *tab, int lenght, void(*f)(int))
+void	ft_foreach(int *tab, int lenght, void (*f)(int))
 {
 	int	i;
 

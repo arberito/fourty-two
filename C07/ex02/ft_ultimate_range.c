@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 22:18:14 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/21 22:23:07 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/28 07:56:21 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_getsize(int min, int max)
 int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	*tab;
-	
+
 	if (!ft_getsize(min, max))
 	{
 		*range = NULL;

@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:25:54 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/27 15:26:37 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/28 08:03:10 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_swap(char **tab, int index)
 	tab[index + 1] = temp;
 }
 
-void ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
 	int	index;
 
