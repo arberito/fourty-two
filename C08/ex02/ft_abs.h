@@ -6,18 +6,13 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 22:19:55 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/27 22:21:55 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/28 15:30:36 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ABS_H
 # define FT_ABS_H
 
-# define ABS(value) \
-    do { \
-        if ((value) < 0) { \
-            (value) = -(value); \
-        } \
-    } while (0)
+# define ABS(value) (value < 0) * (value * -1) + (value >= 0) * value
 
 #endif
