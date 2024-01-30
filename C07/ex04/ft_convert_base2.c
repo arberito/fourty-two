@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 22:58:20 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/22 07:07:47 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/30 07:51:05 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ char	*ft_itoa_base(int nbr, char *base)
 		return (NULL);
 	}
 	i = 0;
+	if (nbr == 0)
+		str[i++] = '0';
 	if (nbr < 0)
 	{
 		nbr *= -1;

@@ -1,85 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split copy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 07:09:45 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/22 08:51:58 by artopall         ###   ########.fr       */
+/*   Updated: 2024/01/30 09:22:06 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_strlen(char *str)
+int	ft_is_charset(char c, char *charset)
+{
+	while (*charset)
+	{
+		if (*charset == c)
+		{
+			return (1);
+		}
+		charset += 1;
+	}
+	return (0);
+}
+
+int	ft_slen(char *str, char *charset)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] && !ft_is_charset(str[i], charset))
 	{
 		i += 1;
 	}
 	return (i);
 }
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_get_size(char *str, char *charset)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (src[i] && i < n)
-	{
-		dest[i] = src[i];
-		i += 1;
-	}
-	dest[i] = 0;
-	return (dest);
-}
-
-int	ft_strstr(char *str, char *charset)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	if (!charset[0])
-		return (ft_strlen(str));
-	while (str[i])
-	{
-		j = 0;
-		while (charset[j] && str[i + j] == charset[j])
-		{
-			j += 1;
-		}
-		if (!charset[j])
-		{
-			return (i);
-		}
-		i += 1;
-	}
-	return (i);
-}
-
-int	ft_getsize(char *str, char *charset)
-{
-	int	i;
 	int	size;
 
 	size = 0;
 	while (*str)
 	{
-		i = 0;
-		while (charset[i] && *(str + i) == charset[i])
-		{
-			i += 1;
-		}
-		if (!charset[i])
-		{
+		while (*str && !ft_is_charset(*str, charset))
+			str += 1;
+		if (*str)
 			size += 1;
-		}
-		str += 1;
+		while (*str && ft_is_charset(*str, charset))
+			str += 1;
 	}
 	return (size);
 }
@@ -88,25 +58,27 @@ char	**ft_split(char *str, char *charset)
 {
 	char	**array;
 	int		index;
-	int		pos;
+	int		i;
 
-	array = (char **)malloc(sizeof(char *) * (ft_getsize(str, charset) + 1));
+	array = malloc(sizeof(char *) * (ft_get_size(str, charset) + 1));
 	if (array == NULL)
 		return (NULL);
-	index = 0;
-	pos = 0;
-	while (str[pos])
+	index = -1;
+	while (*str)
 	{
-		if (ft_strstr(str + pos, charset) > 0)
+		if (!ft_is_charset(*str, charset))
 		{
-			array[index] = malloc(sizeof(char) * (ft_strlen(str + pos) + 1));
-			ft_strncpy(array[index], str + pos, ft_strstr(str + pos, charset));
-			pos += ft_strstr(str + pos, charset);
-			index += 1;
+			array[++index] = malloc(sizeof(char) * (ft_slen(str, charset) + 1));
+			i = -1;
+			while (!ft_is_charset(*str, charset) && *str)
+			{
+				array[index][++i] = *str;
+				str += 1;
+			}
+			array[index][i] = 0;
 		}
-		else
-			pos += 1;
+		str += 1;
 	}
-	array[index] = NULL;
+	array[(ft_get_size(str, charset) + 1)] = 0;
 	return (array);
 }
