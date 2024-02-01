@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:50:23 by artopall          #+#    #+#             */
-/*   Updated: 2024/01/28 16:25:59 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:45:26 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_strdup(char *src)
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	int			i;
-	t_stock_str *s;
+	t_stock_str	*s;
 
 	i = 0;
 	s = malloc(sizeof(t_stock_str) * ac);
