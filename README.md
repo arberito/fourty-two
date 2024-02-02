@@ -1,11 +1,8 @@
-# 42 Quebec
+# Tronc Commun Overview
 
-This repository contains my solutions and projects completed during the Piscine and Tronc Commun.
+This repository contains my projects completed during the Tronc Commun.
 
-## Branches
+## Projects
 
-- `main` or `master`: This branch intentionally contains minimal information and serves as a placeholder.
-  
-- `piscine`: This branch is dedicated to Piscine-related modules. Changes and updates specific to the Piscine section are made here.
+All projects written in C are formatted according to the [norminette](https://github.com/42School/norminette) guidelines.
 
-- `tronc-commun`: This branch is dedicated to Tronc Commun projects. Changes and updates specific to the Tronc Commun section are made here.
