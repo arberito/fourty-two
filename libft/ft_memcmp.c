@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 23:37:41 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 17:59:39 by artopall         ###   ########.fr       */
+/*   Created: 2024/02/03 18:11:12 by artopall          #+#    #+#             */
+/*   Updated: 2024/02/03 18:28:35 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(char *str, int c)
+int	ft_memcmp(void *ptr1, void *ptr2, size_t num)
 {
-	int				len;
-	unsigned char	uc;
+	unsigned char *s1;
+	unsigned char *s2;
 
-	if (str == NULL)
+	if (ptr1 == NULL || ptr2 == NULL || num == 0)
 	{
-		return (NULL);
+		return (0);
 	}
-	uc = (unsigned char)c;
-	len = ft_strlen(str);
-	while (len >= 0 && str[len] != uc)
+	s1 = (unsigned char *)ptr1;
+	s2 = (unsigned char *)ptr2;
+	while (num - 1 > 0 && *s1 == *s2)
 	{
-		if (len == 0)
-		{
-			return (NULL);
-		}
-		len -= 1;
+		s1 += 1;
+		s2 += 1;
+		num -= 1;
 	}
-	return (str + len);
+	return (*s1 - *s2);
 }

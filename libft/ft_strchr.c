@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 23:33:32 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 15:36:47 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:55:46 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ char	*ft_strchr(char *str, int c)
 		return (NULL);
 	}
 	uc = (unsigned char)c;
-	while (*str)
+	while (*str != uc)
 	{
-		if (*str == uc)
+		if (*str == 0)
 		{
-			return (str);
+			return (NULL);
 		}
 		str += 1;
 	}
-	return (NULL);
+	return (str);
 }

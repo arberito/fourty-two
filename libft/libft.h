@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 21:07:16 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 09:22:10 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/03 18:16:35 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	*ft_strchr(char *str, int c);
 char	*ft_strrchr(char *str, int c);
 int		ft_strncmp(char *s1, char *s2, size_t num);
 void	*ft_memchr(void *str, int c, size_t n);
+int		ft_memcmp(void *ptr1, void *ptr2, size_t num);
 char	*ft_strnstr(char *big, char *little, size_t len);
 int		ft_atoi(char *str);
 
