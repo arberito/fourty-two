@@ -6,7 +6,7 @@
 #    By: artopall <artopall@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 16:29:29 by artopall          #+#    #+#              #
-#    Updated: 2024/02/03 09:38:24 by artopall         ###   ########.fr        #
+#    Updated: 2024/02/03 11:31:02 by artopall         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,13 @@ PROJECT	= libft.a
 INCLUDE	= includes
 CC		= cc -Wall -Wextra -Werror
 
+# .c files
 FILES	= ft_atoi.c ft_calloc.c ft_isalpha.c ft_isdigit.c ft_itoa.c ft_memcpy.c ft_memset.c ft_putendl_fd.c ft_putstr_fd.c ft_strchr.c ft_striteri.c ft_strlcat.c ft_strlen.c ft_strncmp.c ft_strrchr.c ft_substr.c ft_toupper.c \
 ft_bzero.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_memchr.c ft_memmove.c ft_putchar_fd.c ft_putnbr_fd.c ft_split.c ft_strdup.c ft_strjoin.c ft_strlcpy.c ft_strmapi.c ft_strnstr.c ft_strtrim.c ft_tolower.c
 OFILES	= $(FILES:.c=.o)
+
+BFILES	= ft_lstadd_back.c  ft_lstadd_front.c  ft_lstclear.c  ft_lstdelone.c  ft_lstiter.c  ft_lstlast.c  ft_lstmap.c  ft_lstnew.c  ft_lstsize.c
+BOFILES	= $(BFILES:.c=.o)
 
 # Compilation
 all		: $(PROJECT)
@@ -27,8 +31,11 @@ all		: $(PROJECT)
 $(PROJECT): $(OFILES)
 	ar -rcs $(PROJECT) $(OFILES)
 
+bonus	: $(OFILES) $(BOFILES)
+	ar -rcs $(PROJECT) $(OFILES) $(BOFILES)
+
 clean	:
-	$(RM) $(OFILES)
+	$(RM) $(OFILES) $(BOFILES)
 
 fclean	: clean
 	$(RM) $(PROJECT)
