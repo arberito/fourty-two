@@ -6,14 +6,14 @@
 #    By: artopall <artopall@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 16:29:29 by artopall          #+#    #+#              #
-#    Updated: 2024/02/03 11:31:02 by artopall         ###   ########.fr        #
+#    Updated: 2024/02/03 13:37:05 by artopall         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Vars
 SRC		= srcs/
 RM		= rm -rf
-PROJECT	= libft.a
+NAME	= libft.a
 INCLUDE	= includes
 CC		= cc -Wall -Wextra -Werror
 
@@ -26,19 +26,19 @@ BFILES	= ft_lstadd_back.c  ft_lstadd_front.c  ft_lstclear.c  ft_lstdelone.c  ft_
 BOFILES	= $(BFILES:.c=.o)
 
 # Compilation
-all		: $(PROJECT)
+all		: $(NAME)
 
-$(PROJECT): $(OFILES)
-	ar -rcs $(PROJECT) $(OFILES)
+$(NAME): $(OFILES)
+	ar -rcs $(NAME) $(OFILES)
 
 bonus	: $(OFILES) $(BOFILES)
-	ar -rcs $(PROJECT) $(OFILES) $(BOFILES)
+	ar -rcs $(NAME) $(OFILES) $(BOFILES)
 
 clean	:
 	$(RM) $(OFILES) $(BOFILES)
 
 fclean	: clean
-	$(RM) $(PROJECT)
+	$(RM) $(NAME)
 
 re		: fclean all
 
