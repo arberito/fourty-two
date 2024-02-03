@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 00:04:34 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 00:08:24 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/03 15:02:28 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_atoi(char *str)
 	{
 		str += 1;
 	}
-	while (ft_issign(*str))
+	if (ft_issign(*str))
 	{
 		if (*str == '-')
 		{
@@ -43,7 +43,7 @@ int	ft_atoi(char *str)
 	}
 	while (ft_isdigit(*str))
 	{
-		nb = nb * 10 + *str - '0';
+		nb = nb * 10 + (*str - '0');
 		str += 1;
 	}
 	return (nb * sign);

@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 09:50:18 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 10:41:01 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:24:17 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst == NULL || lst->content == NULL)
+	if (lst == NULL)
 	{
 		if (lst)
 		{

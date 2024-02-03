@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 08:33:23 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 08:44:45 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:48:21 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_strtrim(char *s1, char *set)
 	{
 		return (NULL);
 	}
-	trim = ft_calloc(ft_getsize(s1, set) + 1, sizeof(char));
+	trim = ft_calloc((ft_getsize(s1, set) + 1), sizeof(char));
 	if (trim == NULL)
 	{
 		return (NULL);

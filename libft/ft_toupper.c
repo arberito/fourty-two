@@ -6,18 +6,22 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 23:01:34 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 00:08:08 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/03 15:00:02 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_islower(int c)
+static int	ft_islower(int c)
 {
 	return (c >= 'a' && c <= 'z');
 }
 
 int	ft_toupper(int c)
 {
-	return (ft_islower(c) && (c -= 32));
+	if (ft_islower(c))
+	{
+		c -= 32;
+	}
+	return (c);
 }

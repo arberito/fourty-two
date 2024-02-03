@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 09:19:14 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 09:22:55 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:42:40 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ char	*ft_strmapi(char *s, char (*f)(unsigned int, char))
 		i += 1;
 		s += 1;
 	}
-	return (s);
+	return (map);
 }
