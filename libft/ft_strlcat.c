@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 23:01:34 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 15:31:38 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/04 07:59:12 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static size_t	ft_finallen(size_t dstlen, char *src, size_t size)
 	final = dstlen + (size_t)ft_strlen(src);
 	if (size < dstlen)
 	{
-		final =  size + (size_t)ft_strlen(src);
+		final = size + (size_t)ft_strlen(src);
 	}
 	return (final);
 }

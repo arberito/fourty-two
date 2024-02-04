@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 18:11:12 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 18:28:35 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/04 07:59:23 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_memcmp(void *ptr1, void *ptr2, size_t num)
 {
-	unsigned char *s1;
-	unsigned char *s2;
+	unsigned char	*s1;
+	unsigned char	*s2;
 
 	if (ptr1 == NULL || ptr2 == NULL || num == 0)
 	{

@@ -6,7 +6,7 @@
 #    By: artopall <artopall@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/02 16:29:29 by artopall          #+#    #+#              #
-#    Updated: 2024/02/03 18:15:39 by artopall         ###   ########.fr        #
+#    Updated: 2024/02/04 11:34:09 by artopall         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ BOFILES	= $(BFILES:.c=.o)
 # Compilation
 all		: $(NAME)
 
-$(NAME): $(OFILES)
+$(NAME)	: $(OFILES)
 	ar -rcs $(NAME) $(OFILES)
 
 bonus	: $(OFILES) $(BOFILES)

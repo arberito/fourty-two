@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 09:50:18 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 16:32:41 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/03 22:45:29 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*temp;
-	// if (*lst == NULL)
-	// {
-	// 	return ;
-	// }
-	temp = *lst;
+	t_list	*coming;
+
+	if (lst == NULL)
+	{
+		return ;
+	}
 	while (*lst)
 	{
-		ft_lstdelone(temp, del);
-		// del((*lst)->content);
-		// free(*lst);
-		temp = temp->next;
+		coming = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = coming;
 	}
 	*lst = NULL;
 }

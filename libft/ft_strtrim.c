@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 08:33:23 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 17:48:21 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/04 09:23:54 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,60 +25,39 @@ static int	ft_isset(char c, char *set)
 	return (0);
 }
 
-static int	ft_getsize(char *s1, char *set)
+static int	ft_getpos(char *s1, char *set, int pos, char todo)
 {
-	int	size;
-
-	size = 0;
-	while (*s1)
+	if (todo == 'r')
 	{
-		while (*s1 && ft_isset(*s1, set) == 1)
+		while (pos - 1 > 0 && ft_isset(s1[pos - 1], set) == 1)
 		{
-			s1 += 1;
-		}
-		if (*s1 != 0)
-		{
-			while (*s1 && ft_isset(*s1, set) == 0)
-			{
-				size += 1;
-				s1 += 1;
-			}
+			pos -= 1;
 		}
 	}
-	return (size);
+	else
+	{
+		while (s1[pos] && ft_isset(s1[pos], set) == 1)
+		{
+			pos += 1;
+		}
+	}
+	return (pos);
 }
 
 char	*ft_strtrim(char *s1, char *set)
 {
-	char	*trim;
-	int		i;
+	int		start;
+	int		end;
 
 	if (s1 == NULL || set == NULL)
 	{
 		return (NULL);
 	}
-	trim = ft_calloc((ft_getsize(s1, set) + 1), sizeof(char));
-	if (trim == NULL)
+	start = ft_getpos(s1, set, 0, 'b');
+	end = ft_getpos(s1, set, ft_strlen(s1), 'r');
+	if (end <= start)
 	{
-		return (NULL);
+		return (ft_strdup(""));
 	}
-	i = 0;
-	while (*s1)
-	{
-		while (*s1 && ft_isset(*s1, set) == 1)
-		{
-			s1 += 1;
-		}
-		if (*s1 != 0)
-		{
-			while (*s1 && ft_isset(*s1, set) == 0)
-			{
-				trim[i] = *s1;
-				i += 1;
-				s1 += 1;
-			}
-		}
-	}
-	trim[i] = 0;
-	return (trim);
+	return (ft_memcpy(ft_calloc(end - start + 1, 1), s1 + start, end - start));
 }

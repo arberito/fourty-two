@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 23:58:59 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 18:03:31 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:58:05 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,22 @@
 
 char	*ft_strnstr(char *big, char *little, size_t len)
 {
-	size_t	i;
-	size_t	j;
-
 	if (big == NULL || little == NULL)
 	{
 		return (NULL);
 	}
-	i = 0;
-	while (big[i] && i < len)
+	if (little[0] == 0)
 	{
-		j = 0;
-		while (big[i + j] == little[j] && little[j])
+		return (big);
+	}
+	while (*big && len >= (size_t)ft_strlen(little))
+	{
+		if (ft_memcmp(big, little, (size_t)ft_strlen(little)) == 0)
 		{
-			j += 1;
+			return (big);
 		}
-		if (little[j] == 0)
-		{
-			return (big + i);
-		}
-		i += 1;
+		big += 1;
+		len -= 1;
 	}
 	return (NULL);
 }

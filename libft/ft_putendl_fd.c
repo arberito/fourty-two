@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 09:28:26 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/03 09:32:56 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/04 08:21:23 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (fd >= 0)
-	{
-		ft_putstr_fd(s, fd);
-		ft_putstr_fd("\n", fd);
-	}
+	ft_putstr_fd(s, fd);
+	ft_putstr_fd("\n", fd);
 }

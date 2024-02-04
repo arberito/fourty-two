@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 23:52:37 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/02 23:56:20 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/04 08:19:06 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(void *str, int c, size_t n)
 {
 	size_t			i;
-	unsigned char	*s1;
+	unsigned char	*ustr;
 	unsigned char	uc;
 
 	if (str == NULL || n == 0)
@@ -23,11 +23,11 @@ void	*ft_memchr(void *str, int c, size_t n)
 		return (NULL);
 	}
 	i = 0;
-	s1 = (unsigned char *)str;
+	ustr = (unsigned char *)str;
 	uc = (unsigned char)c;
-	while (i < n && s1[i])
+	while (i < n && ustr[i])
 	{
-		if (s1[i] == uc)
+		if (ustr[i] == uc)
 		{
 			return (str + i);
 		}
