@@ -6,7 +6,7 @@
 /*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 08:46:29 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/04 11:33:32 by artopall         ###   ########.fr       */
+/*   Updated: 2024/02/04 17:09:18 by artopall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static char	*ft_strcpy(char *dst, char *src, char set)
 		i += 1;
 		src += 1;
 	}
+	dst[i] = 0;
 	return (src);
 }
 
@@ -31,7 +32,7 @@ static int	ft_slen(char *s1, char set)
 	int	i;
 
 	i = 0;
-	while (s1[i] && *s1 != set)
+	while (s1[i] && s1[i] != set)
 	{
 		i += 1;
 	}
@@ -51,9 +52,9 @@ static int	ft_getsize(char *s1, char set)
 		}
 		if (*s1 != 0)
 		{
+			size += 1;
 			while (*s1 && *s1 != set)
 			{
-				size += 1;
 				s1 += 1;
 			}
 		}
@@ -77,29 +78,21 @@ char	**ft_split(char *s, char c)
 	char	**split;
 	int		index;
 
-	if (s == NULL)
-	{
-		return (NULL);
-	}
+	// if (s == NULL)
+	// 	return (NULL);
 	split = malloc(sizeof(char *) * (ft_getsize(s, c) + 1));
 	if (split == NULL)
-	{
 		return (NULL);
-	}
 	index = 0;
 	while (*s)
 	{
 		while (*s && *s == c)
-		{
 			s += 1;
-		}
 		if (*s != 0)
 		{
-			split[index] = ft_calloc(ft_slen(s, c) + 1, sizeof(char));
+			split[index] = malloc(sizeof(char) * (ft_slen(s, c) + 1));
 			if (split[index] == NULL)
-			{
 				return (ft_freeall(split, index));
-			}
 			s = ft_strcpy(split[index], s, c);
 			index += 1;
 		}
