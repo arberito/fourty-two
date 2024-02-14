@@ -1,13 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/03 08:46:29 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/04 17:09:18 by artopall         ###   ########.fr       */
-/*                                                                            */
+/*                                                 -- ··················      */
+/*   ft_split.c                                    1- :██╗  ██╗██████╗ :      */
+/*                                                 0- :██║  ██║╚════██╗:      */
+/*   By: artopall | github/arberito                1- :███████║ █████╔╝:      */
+/*                                                 0- :╚════██║██╔═══╝ :      */
+/*   Created: 2024/02/03 08:46:29 by artopall      1- :     ██║███████╗:      */
+/*   Updated: 2024/02/13 13:05:15 by artopall      0- :     ╚═╝╚══════╝.qc    */
+/*                                                 -- ··················      */
 /* ************************************************************************** */
 
 #include "libft.h"
@@ -78,8 +78,8 @@ char	**ft_split(char *s, char c)
 	char	**split;
 	int		index;
 
-	// if (s == NULL)
-	// 	return (NULL);
+	if (s == NULL)
+		return (NULL);
 	split = malloc(sizeof(char *) * (ft_getsize(s, c) + 1));
 	if (split == NULL)
 		return (NULL);
