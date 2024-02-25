@@ -1,47 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 16:52:40 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/02 19:51:17 by artopall         ###   ########.fr       */
-/*                                                                            */
+/*                                                 -- ··················      */
+/*   ft_printf.h                                   1- :██╗  ██╗██████╗ :      */
+/*                                                 0- :██║  ██║╚════██╗:      */
+/*   By: artopall | github/arberito                1- :███████║ █████╔╝:      */
+/*                                                 0- :╚════██║██╔═══╝ :      */
+/*   Created: 2024/02/15 10:02:54 by artopall      1- :     ██║███████╗:      */
+/*   Updated: 2024/02/24 21:18:30 by artopall      0- :     ╚═╝╚══════╝.qc    */
+/*                                                 -- ··················      */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
 # include <unistd.h>
-# include <stdlib.h>
 # include <stdarg.h>
-# include <stdio.h>
-# include <stdint.h>
+# include <stdlib.h>
 
 typedef struct s_list
 {
-	va_list	arg;
+	va_list	ap;
 	int		len;
-	void	*data;
-	int		index;
-	void	(*ptr[8])(void *);
+	char	*(*fptr[9])(va_list);
 }	t_list;
 
-int		ft_printf(const char *format, ...);
+// Main func
+int			ft_printf(const char *format, ...);
 
-//	ft_utils
-int		ft_isformat(const char *s);
-int		ft_getspecifier(char c);
+// Ft_utils
+int			ft_putchar(char c);
+int			ft_putstr(char *str);
+int			ft_getspecifier(char c);
+const char	*ft_getformat(t_list *lst, const char *format);
 
-// function ptr
-void	ft_putchar(void *c);
-void	ft_putstr(void *str);
-void	ft_putaddy(void *addy);
-void	ft_putdecimal(void *decimal);
-void	ft_putinteger(void *integer);
-void	ft_putuninteger(void *uninteger);
-void	ft_putsmallhexa(void *hex);
-void	ft_putbighexa(void *hex);
+// Function pointer
+char		*ft_strdup(va_list arg);
+char		*ft_intdup(va_list arg);
+char		*ft_addydup(va_list arg);
+char		*ft_uintdup(va_list arg);
+char		*ft_hexadup(va_list arg);
+char		*ft_uphexadup(va_list arg);
 
 #endif

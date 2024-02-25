@@ -1,13 +1,13 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: artopall <artopall@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/02 16:40:24 by artopall          #+#    #+#              #
-#    Updated: 2024/02/03 13:39:32 by artopall         ###   ########.fr        #
-#                                                                              #
+#                                                  -- ··················       #
+#    Makefile                                      1- :██╗  ██╗██████╗ :       #
+#                                                  0- :██║  ██║╚════██╗:       #
+#    By: artopall | github/arberito                1- :███████║ █████╔╝:       #
+#                                                  0- :╚════██║██╔═══╝ :       #
+#    Created: 2024/02/15 10:01:30 by artopall      1- :     ██║███████╗:       #
+#    Updated: 2024/02/25 08:34:20 by artopall      0- :     ╚═╝╚══════╝.qc     #
+#                                                  -- ··················       #
 # **************************************************************************** #
 
 # Vars
@@ -15,15 +15,17 @@ SRC		= srcs/
 RM		= rm -rf
 INCLUDE	= includes
 NAME	= libftprintf.a
-CC		= cc -Wall -Wextra -Werror -I./$(INCLUDE)
+CCF		= cc -Wall -Wextra -Werror -I./$(INCLUDE)
 
-FILES	= $(SRC)ft_printf.c $(SRC)ft_utils.c $(SRC)ft_putchar.c $(SRC)ft_putnbr.c
+# .c files
 OFILES	= $(FILES:.c=.o)
+FILES	= $(SRC)ft_printf.c $(SRC)ft_utils.c \
+$(SRC)ft_strdup.c $(SRC)ft_intdup.c $(SRC)ft_uintdup.c $(SRC)ft_addydup.c $(SRC)ft_hexdup.c $(SRC)ft_uphexadup.c 
 
 # Compilation
 all		: $(NAME)
 
-$(NAME): $(OFILES)
+$(NAME)	: $(OFILES)
 	ar -rcs $(NAME) $(OFILES)
 
 clean	:

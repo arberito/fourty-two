@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: artopall <artopall@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 16:41:11 by artopall          #+#    #+#             */
-/*   Updated: 2024/02/02 20:55:07 by artopall         ###   ########.fr       */
-/*                                                                            */
+/*                                                 -- ··················      */
+/*   ft_printf.c                                   1- :██╗  ██╗██████╗ :      */
+/*                                                 0- :██║  ██║╚════██╗:      */
+/*   By: artopall | github/arberito                1- :███████║ █████╔╝:      */
+/*                                                 0- :╚════██║██╔═══╝ :      */
+/*   Created: 2024/02/15 10:05:29 by artopall      1- :     ██║███████╗:      */
+/*   Updated: 2024/02/24 21:29:11 by artopall      0- :     ╚═╝╚══════╝.qc    */
+/*                                                 -- ··················      */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
-	t_list	list;
+	t_list	lst;
 
-	list.ptr[0] = ft_putchar;
-	list.ptr[1] = ft_putstr;
-	list.ptr[2] = ft_putaddy;
-	list.ptr[3] = ft_putdecimal;
-	va_start(list.arg, format);
+	lst.len = 0;
+	va_start(lst.ap, format);
+	lst.fptr[2] = ft_strdup;
+	lst.fptr[3] = ft_addydup;
+	lst.fptr[4] = ft_intdup;
+	lst.fptr[5] = ft_intdup;
+	lst.fptr[6] = ft_uintdup;
+	lst.fptr[7] = ft_hexadup;
+	lst.fptr[8] = ft_uphexadup;
 	while (*format)
 	{
-		if (ft_isformat(format) == 1)
-		{
-			format += 1;
-			list.index = ft_getspecifier(*format);
-			if (list.index == 0)
-				list.ptr[list.index]((void *)(intptr_t)va_arg(list.arg, int));
-			else
-				list.ptr[list.index](va_arg(list.arg, void *));
-		}
-		else
-		{
-			ft_putchar((void *)(intptr_t)*format);
-		}
-		format += 1;
+		format = ft_getformat(&lst, format);
 	}
-	va_end(list.arg);
-	list.len = 0;
-	return (list.len);
+	va_end(lst.ap);
+	return (lst.len);
 }
